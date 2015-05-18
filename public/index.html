@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-2.1.4.min.js"></script>
+<link rel='stylesheet' type='text/css' href='styles.css'>
+</head>
+
+<body>
+
+<script type='text/javascript'>
+function update()
+{
+    jQuery.get('json/data', null, function(data, text_status, jq_xhr) {
+        $('#container').html(data.svg);
+        console.log(data);
+    });
+}
+
+$(document).ready(function() {
+    update();
+    setInterval(update, 1000)
+});
+</script>
+
+<div id='container'>
+</div>
+</body>
+</html>
